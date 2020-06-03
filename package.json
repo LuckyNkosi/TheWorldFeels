@@ -1,0 +1,28 @@
+{
+  "name": "twiiter-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "NL. Nkosi",
+  "license": "ISC",
+  "dependencies": {
+    "@google/maps": "^0.5.5",
+    "cities1000": "0.0.0",
+    "datamaps": "^0.5.9",
+    "express": "^4.16.4",
+    "fs": "0.0.1-security",
+    "level": "^4.0.0",
+    "mssql": "^4.3.2",
+    "node-where": "^1.1.0",
+    "rest-countries-node": "^1.0.0",
+    "sentiment": "^5.0.1",
+    "socket.io": "^2.1.1",
+    "split": "^1.0.1",
+    "through": "^2.3.8",
+    "twit": "^2.2.11"
+  }
+}

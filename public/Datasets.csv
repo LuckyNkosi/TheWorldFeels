@@ -1,0 +1,84 @@
+test_date,nid,L500k,L1k,gender,naics,age_group,region,NAICS_descr
+09-Jan-08,107969,0,0,M,212312,4,MA,Crushed and Broken Limestone Mining and Quarrying
+09-Jan-08,108018,5,5,M,212312,4,MA,Crushed and Broken Limestone Mining and Quarrying
+27-Feb-08,119839,10,10,M,212319,4,MA,Other Crushed and Broken Stone Mining and Quarrying
+27-Feb-08,119853,25,25,M,212319,4,MA,Other Crushed and Broken Stone Mining and Quarrying
+11-Mar-08,138166,15,10,F,112340,4,MA,Poultry Hatcheries
+11-Mar-08,138193,15,15,F,112340,4,MA,Poultry Hatcheries
+11-Mar-08,384628,0,0,F,112340,4,MA,Poultry Hatcheries
+11-Mar-08,390327,10,5,F,112340,4,MA,Poultry Hatcheries
+11-Mar-08,390328,10,15,F,112340,4,MA,Poultry Hatcheries
+11-Mar-08,138171,10,5,M,112340,4,MA,Poultry Hatcheries
+11-Mar-08,138172,15,10,M,112340,4,MA,Poultry Hatcheries
+11-Mar-08,138178,10,15,M,112340,4,MA,Poultry Hatcheries
+11-Mar-08,384609,10,20,M,112340,4,MA,Poultry Hatcheries
+11-Mar-08,384616,20,15,M,112340,4,MA,Poultry Hatcheries
+11-Mar-08,390331,10,15,M,112340,4,MA,Poultry Hatcheries
+11-Mar-08,390334,5,10,M,112340,4,MA,Poultry Hatcheries
+11-Mar-08,390339,10,10,M,112340,4,MA,Poultry Hatcheries
+11-Mar-08,390340,10,10,M,112340,4,MA,Poultry Hatcheries
+11-Mar-08,390348,15,10,M,112340,4,MA,Poultry Hatcheries
+14-Apr-08,213072,10,10,F,112340,4,MA,Poultry Hatcheries
+14-Apr-08,213066,15,5,M,112340,4,MA,Poultry Hatcheries
+14-Apr-08,213076,10,10,M,112340,4,MA,Poultry Hatcheries
+14-Apr-08,213135,5,40,M,112340,4,MA,Poultry Hatcheries
+14-Apr-08,213137,15,10,M,112340,4,MA,Poultry Hatcheries
+14-Apr-08,213151,15,5,M,112340,4,MA,Poultry Hatcheries
+24-Apr-08,145019,0,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+24-Apr-08,145058,15,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+24-Apr-08,145135,10,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+24-Apr-08,145231,10,10,M,31211,4,MA,Soft Drink and Ice Manufacturing
+24-Apr-08,145329,10,10,M,31211,4,MA,Soft Drink and Ice Manufacturing
+24-Apr-08,145365,10,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+24-Apr-08,145431,15,10,M,31211,4,MA,Soft Drink and Ice Manufacturing
+24-Apr-08,145444,10,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+24-Apr-08,145488,10,20,M,31211,4,MA,Soft Drink and Ice Manufacturing
+24-Apr-08,145502,0,0,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145034,5,0,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145037,10,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145046,10,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145095,10,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145126,10,10,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145202,10,10,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145251,10,10,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145301,5,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145361,5,15,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145371,10,0,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145425,5,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145426,15,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145451,10,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145458,15,15,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145481,10,20,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145535,20,25,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145573,20,10,M,31211,4,MA,Soft Drink and Ice Manufacturing
+25-Apr-08,145580,10,5,M,31211,4,MA,Soft Drink and Ice Manufacturing
+29-May-08,391845,5,0,F,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391889,10,5,F,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391916,10,5,F,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391956,15,5,F,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391975,15,20,F,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391980,10,5,F,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391986,15,15,F,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391819,10,5,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391824,20,15,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391836,15,10,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391841,25,15,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391865,5,0,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391887,10,10,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391935,10,5,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391937,10,5,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391941,10,0,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,391946,10,20,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,392007,5,5,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+29-May-08,392044,10,10,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+30-May-08,391827,20,25,F,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+30-May-08,391976,10,10,F,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+30-May-08,391896,10,10,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+30-May-08,391901,10,20,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+30-May-08,391903,5,10,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+30-May-08,391961,10,10,M,115114,4,MA,Postharvest Crop Activities (except Cotton Ginning)
+22-Aug-08,213104,20,25,M,112340,4,MA,Poultry Hatcheries
+05-Nov-08,70206,15,5,F,212312,4,MA,Crushed and Broken Limestone Mining and Quarrying
+05-Nov-08,70207,15,10,M,212312,4,MA,Crushed and Broken Limestone Mining and Quarrying
+05-Nov-08,70218,10,10,M,212312,4,MA,Crushed and Broken Limestone Mining and Quarrying
+05-Nov-08,70220,10,10,M,212312,4,MA,Crushed and Broken Limestone Mining and Quarrying

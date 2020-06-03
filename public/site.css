@@ -1,0 +1,147 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#mapContainer {
+    background-color: #000080;
+}
+
+/* 
+.blueBackground{
+    background-color: blue;
+} */
+
+/*Globe*/
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: #555;
+}
+
+#globe,
+#mapContainer {
+    cursor: move;
+}
+
+#current {
+    position: absolute;
+    color: white;
+    font-family: sans-serif;
+    margin-left: 4%;
+    margin-top: 4%;
+}
+
+#mapContainer {
+    background-color: '#ffffff';
+    position: relative;
+    width: 1200px;
+    height: 780px;
+}
+
+#frame {
+    padding-top: 1%;
+}
+
+.hidden {
+    display: none;
+}
+
+.modal-dialog {
+    width: 50%;
+    height: 50%;
+    margin: 0;
+    padding: 0;
+}
+
+.modal-content {
+    height: auto;
+    min-height: 50%;
+    border-radius: 0;
+}
+
+.modalHeading {
+    background-color: #24a3f2;
+}
+
+/* Absolute Center Spinner */
+.loading {
+    position: fixed;
+    z-index: 999;
+    height: 2em;
+    width: 2em;
+    overflow: show;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+nav ul {
+    height: 600px;
+    width: 100%;
+    border: 3px solid #24a3f2;
+}
+
+nav ul {
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.negativeFilter {
+    background-color: #F9555A;
+}
+
+.neutralFilter {
+    background-color: #F78B42
+}
+
+.positiveFilter {
+    background-color: #94F452
+}
+
+b,
+.alignLeft {
+    margin-left: 3%;
+}
+
+/* basic positioning */
+.legend {
+    list-style: none;
+}
+
+.legend li {
+    float: left;
+    margin-right: 10px;
+}
+
+.legend span {
+    border: 1px solid #ccc;
+    float: left;
+    width: 12px;
+    height: 12px;
+    margin: 2px;
+}
+
+/* your colors */
+.legend .neutral {
+    background-color: #F78B42;
+}
+
+.legend .negative {
+    background-color: #990000;
+}
+
+.legend .positive {
+    background-color: #00CC44;
+}
+
+.legend .default {
+    background-color: #b3ffb3;
+}
+
+#globe-tooltip {
+    position: absolute;
+}

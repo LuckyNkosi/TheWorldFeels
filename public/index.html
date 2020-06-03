@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
+
+  <script src="https://d3js.org/d3-geo.v1.min.js"></script>
+  <script src="https://d3js.org/topojson.v2.min.js"></script>
+  <script src="https://bl.ocks.org/mbostock/raw/7ea1dde508cec6d2d95306f92642bc42/6aac691494f752142a67cc43c51a0fd09896dbd4/versor.js"></script>
+
+  <script src="p5.min.js"></script>
+  <script src="addons/p5.dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.0/d3.min.js"></script>
+  <script>
+    d3version4 = d3
+      window.d3 = null
+    </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js"></script>
+  <script>
+    d3version3 = d3
+      window.d3 = null
+      // test it worked
+      console.log('v3', d3version3.version)
+      console.log('v4', d3version4.version)
+    </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <script src="datamaps.world.min.js"></script>
+  <script src="sketch.js"></script>
+  <link rel="stylesheet" type="text/css" href="site.css">
+  <link rel="stylesheet" type="text/css" href="loader.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.5/css/bootstrap.css">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+</head>
+
+<body class="blueBackground">
+  <div style="text-align:center" class="page-header">
+    <h1 class="well">The World Feels</h1>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Search Topic</button>
+    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#InfoModal">Information</button>
+    <br>
+  </div>
+
+  <div id="frame" class="container row">
+    <div class="col-sm-5">
+      <div id="feedFilterButtons" class="row">
+        <b>By Sentiment: </b>
+      </div>
+      <br>
+      <div id="filterCountryLabel" class="row hidden">
+        <b>Tweets From: <span id="filterCountry"></span></b>
+      </div>
+      <nav>
+        <ul id="twitterFeed" class="list-group"></ul>
+      </nav>
+      <br>
+      <div id="keyLegend" class="row" style="margin-left: 0px;">
+        <ul class="legend">
+          <h4>Key For Map Colours</h4>
+          <li><span class="neutral"></span> Neutral</li>
+          <li><span class="negative"></span> Negative</li>
+          <li><span class="positive"></span> Positive</li>
+          <li><span class="default"></span> Default (No Data)</li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="col-sm-7">
+      <div id="mapContainer"></div>
+      <h2 id="current">NAzo</h2>
+      <canvas id="globe"></canvas>
+    </div>
+  </div>
+  <!-- <button onclick="$('#cover-spin').show(0)">Show</button>
+  <button onclick="$('#cover-spin').hide(0)">Hide</button> -->
+  <div id="cover-spin"></div>
+  <div class="loader"></div>
+  <!-- Modal -->
+  <div class="container">
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div id="modalContent" class="modal-content">
+          <div class="modal-header modalHeading">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title" style="text-align:center">Search Twitter Topic</h4>
+          </div>
+          <div class="modal-body" style="text-align:center">
+            <p>Enter some text to search tweets by. It can be a #hashtag, an @, a single word or even a phrase.</p>
+            <div id="twitterInput"></div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-dismiss="modal" id="searchBtn">Search</button>
+            <!-- <button type="button" class="btn btn-info" id="searchBtn">Search</button> -->
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+      <div id="loadingAnimation" class="loading hidden">Loading&#8230;</div>
+    </div>
+  </div>
+  
+  <!-- Modal: The different information screens -->
+  <div class="container">
+    <div class="modal fade" id="InfoModal" role="dialog">
+      <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div id="modalContent" class="modal-content">
+          <div class="modal-header modalHeading">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h1 class="modal-title" style="text-align:center">About & Instructions</h1>
+          </div>
+          <div class="modal-body" style="text-align:center">
+          
+            <div id="About0">
+              <h3>About This Project</h3>
+              <p> <b>The World Feels: </b>
+                This data visualisation aims to highlight the fact that behind every tweet in the world is human with
+                feelings.
+                These feelings are often embeded in the the tweets by means of the sentiments expressed by the tweet.
+                <br>
+                This data visualisation searches for tweets based on the user's input, performs sentiment analysis on
+                every single tweet
+                then shows the overall sentiment (either positive, neutral or negative) in each country based on the
+                averaged sentiments detected from tweets originating from each country.
+                <br><br>
+                The next few screens will walk you through the site. Click 'Next' below to continue
+              </p>
+            </div>
+
+            <div id="About1" class="hidden">
+              <h3>About This Project</h3>
+              <p> <b>Search Twitter Topics: </b>
+                To begin, search for a topic, user or trend. To do this, you need to click on the 'Search Topic'
+                button located just below the main title. An interafce will pop-up with a field for you to enter the
+                word, phrase, user name or hashtag you wish to search for. After typing your search citerea in the
+                field, click the 'search' button. The system will fetch tweets on the topic, analyze them and then
+                display the results on the map.
+                <br>
+                The gif below show an example of the above mentioned process:
+                <br><br>
+                <img src="./Resources/Search.gif" alt="Search Gif" width="100%" height="100%">
+                <br>
+    
+              </p>
+            </div>
+
+            <div id="About2" class="hidden">
+              <h3>About This Project</h3>
+              <p> <b>The Different Views: </b>
+                Once the data has been loaded, the visualiations can be viewed in one of two ways; either on a flat map
+                or a rotating globe. When you hover over the flat map, the country's name should be visible and on the
+                globe, you can stop it's automatic rotation and rotate it yourself by dragging it using the mouse
+                <br> <br>
+                To switch between the two views and to rotate the globe, simply move the slider on the top-left corner
+                and one on the globe, drag it as you wish of the screen as shown
+                below
+                <br>
+                <br><br>
+                <img src="./Resources//diffViews.gif" alt="diffViews Gif" width="100%" height="100%">
+                <br>
+              </p>
+            </div>
+
+            <div id="About3" class="hidden">
+              <h3>About This Project</h3>
+              <p> <b>The Key/Legend: </b>
+                On both views (flat map and globe) the overall sentiments of tweets in the country will be indicated by
+                a colour. At the bottom-left of the screen
+                is a key, showing what each colour means.
+                <br> <br>
+                The key is on the bottom-left corner of the screen as shown in the below image:
+                <br>
+                <br><br>
+                <img src="./Resources//KeyForMap.gif" alt="KeyForMap Gif" width="100%" height="100%">
+                <br>
+              </p>
+            </div>
+
+            <div id="About4" class="hidden">
+              <h3>About This Project</h3>
+              <p> <b>Filter Tweets by Sentiment: </b>
+                The application allows you to see the actual raw tweets that were analyzed. The full list of all the
+                tweets analyzed are on the left panel of the screen. This list can be filtered by sentiment. If you
+                wish to see all the negative tweets, all you have to do is click on the 'negative' button. You do the
+                same for neutral and positive. <br>
+                To remove the filter, simple click on the 'No Filter' button.
+                <br> <br>
+                Below is an example of how the filtering functionality can be used.
+                <br>
+                <br><br>
+                <img src="./Resources/filterbysentiment.gif" alt="filterbysentiment Gif" width="100%" height="100%">
+                <br>
+              </p>
+            </div>
+
+            <div id="About5" class="hidden">
+              <h3>About This Project</h3>
+              <p> <b>Filter Tweets by Country: </b>
+                The full list of tweets can also be filtered by country. If you'd like to view all the tweets from a
+                specif country, all you have to do is click on the country in the map.
+                <br>
+                To remove the filter, simple click on the 'No Filter' button.
+                <br> <br>
+                Below is an example of how the filtering functionality can be used.
+                <br>
+                <br><br>
+                <img src="./Resources/filterbyCountry.gif" alt="filterbyCountry Gif" width="100%" height="100%">
+                <br>
+              </p>
+            </div>
+
+            <div id="About6" class="hidden">
+              <h3>About This Project</h3>
+              <p> <b>The Tweet Beyond The Application: </b>
+                There is a character limitation of 140 characters in the tweet view panel. Should you wiish to view the
+                original full tweets, along with all the interaction it had on the twitter, simply click on the text
+                that reads: 'Click for full tweet'. A new tab will be opened, directing you to the original tweets.
+                <br>
+                The clickable 'Click for full tweet' text is found at the end of evry single tweet.
+                <br> <br>
+                Below is an example of how the launching to external url functionality can be used.
+                <br>
+                <br><br>
+                <img src="./Resources/launchURL.gif" alt="launchURL Gif" width="100%" height="100%">
+                <br>
+              </p>
+            </div>
+
+            <div id="twitterInput"></div> 
+          </div>
+          <div class="modal-footer">
+            <!-- <button type="button" class="btn btn-info disabled" id="infoPrevtBtn">Previous</button> -->
+            <button type="button" class="btn btn-info" id="infoNextBtn">Next</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+      <div id="loadingAnimation" class="loading hidden">Loading&#8230;</div>
+
+
+    </div>
+  </div>
+</body>
+
+</html>
