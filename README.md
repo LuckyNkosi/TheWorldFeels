@@ -1,2 +1,3 @@
 # TheWorldFeels
-Wits Data Visualisation Final Project
+
+VIsualisation based on sentiment analysis of tweets based on a search field
